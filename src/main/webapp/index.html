@@ -11,13 +11,51 @@
                 <a class="navbar-brand">Banking Application</a>
             </div>
         </div>
-       
     </nav>
+    
+    <!-- Example 1: ng-hide, ng-model
+    <div ng-hide="isHidden">
     Name: <input type="text" ng-model="name"/>{{name}}
+    </div>
+    Hide div: <input type="checkbox" ng-model="isHidden"/>
+     -->
+     
+    <!-- Example 2: ng-init, ng-click
+    <div ng-init ="name='john'">
+    	<div ng-hide="isHidden">
+    	Name: <input type="text" ng-model="name"/>{{name}}
+    	<br/>
+    	<button ng-click="name='Jane'">Change name</button>
+    </div>
+     -->
+     
+    <!--
+    Example 3: ng-repeat and filters
+    <div ng-init ="accounts=[{'firstName': 'John', 'secondName': 'Doe','accountNumber': '1234'},{'firstName': 'Jane','secondName': 'Doe','accountNumber': '1235'}]">
+    	<h3><span>Simple example</span></h3>
+    	<ul>
+    		<li ng-repeat="account in accounts">{{account}}</li>
+    	</ul>
+    	<h3><span>Table example</span></h3>
+    	<table>
+    		<tr>
+    			<th>first</th>
+    			<th>second</th>
+    			<th>number</th>
+    		</tr>
+    		<tr ng-repeat="account in accounts">
+    			<td>{{account.firstName |  uppercase}}</td>
+    			<td>{{account.secondName | uppercase}}</td>
+    			<td>{{account.accountNumber}}</td>
+    		</tr>
+    	</table>
+    </div>
+    -->
 	<link rel="stylesheet" href="scripts/bootstrap.min.css"> 
     <script src="scripts/jquery-2.1.4.min.js"></script>
     <script src="scripts/angular.min.js"></script>
     <script src="scripts/ui-router.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
+    </div>
 </body>
 </html>
