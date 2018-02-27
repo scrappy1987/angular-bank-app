@@ -2,7 +2,7 @@
 <html lang="en" ng-app="accountApp">
 <head>
     <meta charset="UTF-8">
-    <title>Banking Application</title>
+    <title>My Banking Application</title>
 </head>
 <body>
     <nav class="navbar navbar-default">
@@ -16,6 +16,7 @@
 	        </ul>
 	    </div>
 	</nav>
+	
     <div ui-view></div>
     
 	<link rel="stylesheet" href="scripts/bootstrap.min.css"> 
@@ -26,6 +27,9 @@
     
     <script src="app/app.js"></script>
     <script src="app/app-state-manager.js"></script>
+    
+    <script src="app/service/dal/dal.js"></script>
+    <script src="app/service/dal/account.js"></script>
     
     <script src="app/service/account.js"></script>
     
