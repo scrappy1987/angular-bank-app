@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="accountApp">
 <head>
     <meta charset="UTF-8">
     <title>Banking Application</title>
@@ -12,50 +12,36 @@
             </div>
         </div>
     </nav>
+    <div class="dashboard panel panel-default" ng-controller="accountController as accountCtrl">
+	    <div class="panel-heading">Accounts page</div>
+	    <div class="panel-body">
+   		{{accountCtrl.test}}
+   		<div ng-hide="accountCtrl.isHidden">
+        	<h3><span>Accounts table</span></h3>
+        	<table class="table">
+        		<tr>
+        			<th>{{'first_name' | uppercase}}</th>
+        			<th>{{'surname' | uppercase}}</th>
+        			<th>{{'account_number' | uppercase}}</th>
+        		</tr>
+        		<tr ng-repeat="account in accountCtrl.accounts">
+        			<td>{{account.firstName}}</td>
+        			<td>{{account.secondName}}</td>
+        			<td>{{account.accountNumber}}</td>
+        		</tr>
+        	</table>
+        </div>
+        <button class="btn"ng-click="accountCtrl.hideTable()">Hide accounts</button>
+	</div>
     
-    <!-- Example 1: ng-hide, ng-model
-    <div ng-hide="isHidden">
-    Name: <input type="text" ng-model="name"/>{{name}}
-    </div>
-    Hide div: <input type="checkbox" ng-model="isHidden"/>
-     -->
-     
-    <!-- Example 2: ng-init, ng-click
-    <div ng-init ="name='john'">
-    	<div ng-hide="isHidden">
-    	Name: <input type="text" ng-model="name"/>{{name}}
-    	<br/>
-    	<button ng-click="name='Jane'">Change name</button>
-    </div>
-     -->
-     
-    <!--
-    Example 3: ng-repeat and filters
-    <div ng-init ="accounts=[{'firstName': 'John', 'secondName': 'Doe','accountNumber': '1234'},{'firstName': 'Jane','secondName': 'Doe','accountNumber': '1235'}]">
-    	<h3><span>Simple example</span></h3>
-    	<ul>
-    		<li ng-repeat="account in accounts">{{account}}</li>
-    	</ul>
-    	<h3><span>Table example</span></h3>
-    	<table>
-    		<tr>
-    			<th>first</th>
-    			<th>second</th>
-    			<th>number</th>
-    		</tr>
-    		<tr ng-repeat="account in accounts">
-    			<td>{{account.firstName |  uppercase}}</td>
-    			<td>{{account.secondName | uppercase}}</td>
-    			<td>{{account.accountNumber}}</td>
-    		</tr>
-    	</table>
-    </div>
-    -->
 	<link rel="stylesheet" href="scripts/bootstrap.min.css"> 
     <script src="scripts/jquery-2.1.4.min.js"></script>
     <script src="scripts/angular.min.js"></script>
     <script src="scripts/ui-router.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
+    
+    <script src="app/app.js"></script>
+    <script src="app/controllers/account-controller.js"></script>
     </div>
 </body>
 </html>
