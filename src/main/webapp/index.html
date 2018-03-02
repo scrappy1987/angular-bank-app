@@ -13,12 +13,16 @@
 	        <ul class="nav navbar-nav">
 	            <li><a ui-sref="dashboard">Dashboard</a></li>
 	            <li><a ui-sref="account">Account</a></li>
+	              <li><a ui-sref="addAccount"> Add Account</a></li>
 	        </ul>
 	    </div>
 	</nav>
 	
     <div ui-view></div>
-    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="scripts/bootstrap.min.css"> 
+	<link rel="stylesheet" href="app/feature/account/account.css"> 
+	<link rel="stylesheet" href="app/feature/addAccount/addAccount.css"> 
 	<link rel="stylesheet" href="scripts/bootstrap.min.css"> 
     <script src="scripts/jquery-2.1.4.min.js"></script>
     <script src="scripts/angular.min.js"></script>
@@ -31,11 +35,14 @@
     <script src="app/service/dal/dal.js"></script>
     <script src="app/service/dal/account.js"></script>
     
+    
     <script src="app/service/account.js"></script>
+    <script src="app/service/addAccount-service.js"></script>
     
     
     <script src="app/feature/account/account-controller.js"></script>
     <script src="app/feature/dashboard/dashboard-controller.js"></script>
+    <script src="app/feature/addAccount/addAccount-controller.js"></script>
     </div>
 </body>
 </html>

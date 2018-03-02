@@ -9,6 +9,7 @@
 
                 GET: function (apiPath) {
                     var deferred = $q.defer();
+                    $log.log("Dal GET run")
                     $http.get(apiPath).then(function (result) {
                         deferred.resolve(result.data);
                     }, function (e) {

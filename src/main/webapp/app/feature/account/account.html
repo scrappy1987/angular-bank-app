@@ -13,7 +13,8 @@
         		<tr ng-repeat="account in accountCtrl.accounts">
         			<td>{{account.firstName}}</td>
         			<td>{{account.secondName}}</td>
-        			<td>{{account.accountNumber}}</td>
+        			<td>{{account.accountNumber}}<div class="changeState" ng-click="accountCtrl.updateAccount(account)">Edit<i class="material-icons orange600">mode_edit</i></div><div class="changeState" ng-click="accountCtrl.removeAccount(account.id)">Delete<i class="material-icons orange600">note_add</i></div></td>
+        			<td></td>
         		</tr>
         	</table>
         </div>
