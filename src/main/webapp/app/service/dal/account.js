@@ -2,13 +2,14 @@
 
 (function () {
 
-    function AccountDal (dal) {
-
+    function AccountDal (dal,$log) {
+		$log.log("dal gett accounts");
         this.getAccounts = function () {
             return dal.http.GET("rest/account/json");
         };
 
         this.saveAccount = function (accountToSave) {
+        $log.log(accountToSave);
             return dal.http.POST("rest/account/json", accountToSave);
         };
 
@@ -21,5 +22,5 @@
         };
     }
     
-    angular.module("accountApp").service("accountDal", ["dal", AccountDal]);
+    angular.module("accountApp").service("accountDal", ["dal",'$log', AccountDal]);
 }());
