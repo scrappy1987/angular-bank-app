@@ -51,7 +51,7 @@
                             data: JSON.stringify(itemToSave)
                         }
                     ).then(function (results) {
-                            deferred.resolve(results);
+                            deferred.resolve(results.data);
                         }, function (e) {
                             deferred.reject(e);
                         });
@@ -60,8 +60,8 @@
 
                 DELETE: function (apiPath, itemToDelete) {
                     var deferred = $q.defer();
-                    $http.delete(apiPath + itemToDelete.id).then(function () {
-                        deferred.resolve();
+                    $http.delete(apiPath + itemToDelete.id).then(function (results) {
+                        deferred.resolve(results.data);
                     }, function (e) {
                         deferred.reject(e);
                     });

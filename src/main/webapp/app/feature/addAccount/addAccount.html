@@ -1,14 +1,49 @@
-<div class="panel panel-default" ng-controller="addAccountController as addAccountCtrl">
-	    <div class="panel-heading">Accounts Creation and Updating</div>
-	    <div class="panel-body">
-	    <form action=""> 
-	    <lable>First Name:</lable><input type="text" ng-model="addAccountCtrl.firstName">
-	     <lable>Last Name:</lable><input type="text"  ng-model="addAccountCtrl.lastName">
-	      <lable>Account Number:</lable><input type="text"  ng-model="addAccountCtrl.accountNumber">
-	    </form>
-	    <button ng-click="addAccountCtrl.setAction()">{{addAccountCtrl.buttonName}}</button>
-   		
-   		
-   		
+<div class="panel panel-default"
+	ng-controller="addAccountController as addAccountCtrl">
+	<div class="panel-heading">Accounts Creation and Updating</div>
+	<div class="panel-body">
+		<div class="container">
+			<div class="alert alert-success alert-dismissible fade in"
+				id="infoDisplay" ng-hide="addAccountCtrl.isHidden">
+				<a href="#" class="close" aria-label="close">&times;</a> <strong>{{addAccountCtrl.buttonName}}
+					Action</strong> {{addAccountCtrl.message}}
+
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped active"
+						role="progressbar" aria-valuenow="" aria-valuemin="0"
+						aria-valuemax="100" ng-style="addAccountCtrl.progressStyle"></div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<form>
+			<div class="form-group">
+				<label for="firstName">First Name:</label> <input type="text"
+					class="form-control" id="firstName"
+					ng-model="addAccountCtrl.firstName">
+			</div>
+
+			<div class="form-group">
+				<label for="lastName">Last Name:</label> <input type="text"
+					class="form-control" id="lastName"
+					ng-model="addAccountCtrl.lastName">
+			</div>
+			<div class="form-group">
+				<label for="accountNumber">First Name:</label> <input type="text"
+					class="form-control" id="accountNumber"
+					ng-model="addAccountCtrl.accountNumber">
+			</div>
+
+
+			<button class="btn btn-info " type="button"
+				ng-click="addAccountCtrl.setAction()">{{addAccountCtrl.buttonName}}</button>
+		</form>
+
 	</div>
+</div>
+
+
+
 </div>

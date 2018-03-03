@@ -2,10 +2,13 @@
 
 (function() {
 
-    var AddAccountController =  function(addAccountService, $log, $stateParams) {
+    var AddAccountController =  function(addAccountService, $log, $stateParams,$state,$timeout,$interval) {
         $log.log("AddAccountController  Controller Created");
     	var vm = this;
-       
+        vm.message;
+    	vm.isHidden = true;
+    	vm.progress=0;
+    	
         if($stateParams.accountAction)
         	{
         	vm.buttonName="Update Account";
@@ -40,12 +43,12 @@
         	 $log.log("the Account in JSON "+(JSON.stringify(account)));
         	 
         	 addAccountService.addAccounts(account).then(function (results) {
-                	vm.result = results;
-                	$log.log("In the account controller the value of the result promise is ");
-             	$log.log(JSON.stringify("the result of the addAccountService.addAccount : "+vm.result));
+                	vm.message=results.message;
+                	redirect();
                  }, function (error) {
                      vm.error = true;
-                     vm.errorMessage = error;
+                     vm.message = error;
+                     redirect();
                  });
          };
          
@@ -54,24 +57,36 @@
          function updateAccount(){
         	 $log.log("inside updateAccount");
         	 var account={id:vm.accountId,firstName:vm.firstName,secondName:vm.lastName,accountNumber:vm.accountNumber};
-        	 
-        	 $log.log("the Account in JSON "+(JSON.stringify(account)));
-        	 
+      
         	 addAccountService.updateAccounts(account).then(function (results) {
-                	vm.result = results;
-                	$log.log("In the account controller the value of the result promise is ");
-             	$log.log(JSON.stringify("the result of the addAccountService.addAccount : "+vm.result));
+              vm.message=results.message;
+              redirect();
+            
+              
                  }, function (error) {
                      vm.error = true;
-                     vm.errorMessage = error;
+                     vm.message = error;
+                     redirect();
                  });
          };
          
          
+      
+         
+         function redirect(){
+        	 vm.isHidden = false;	
+        	 $interval(function(){
+    			 vm.progress=vm.progress+.5;
+    			 vm.progressStyle={width:''+vm.progress+'%'};
+    		 }, 10, [200]);
+        	 
+        	  $timeout(function () { $state.go("account"); }, 3000);
+        	 
+         };
          
          
          
     };
 
-    angular.module('accountApp').controller('addAccountController', ['addAccountService','$log','$stateParams', AddAccountController]);
+    angular.module('accountApp').controller('addAccountController', ['addAccountService','$log','$stateParams','$state','$timeout','$interval', AddAccountController]);
 }());

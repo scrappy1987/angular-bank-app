@@ -1,48 +1,59 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="accountApp">
 <head>
-    <meta charset="UTF-8">
-    <title>My Banking Application</title>
+<meta charset="UTF-8">
+<title>My Banking Application</title>
 </head>
 <body>
-    <nav class="navbar navbar-default">
-	    <div class="container-fluid">
-	        <div class="navbar-header">
-	            <a class="navbar-brand" href="#">AccountApp</a>
-	        </div>
-	        <ul class="nav navbar-nav">
-	            <li><a ui-sref="dashboard">Dashboard</a></li>
-	            <li><a ui-sref="account">Account</a></li>
-	              <li><a ui-sref="addAccount"> Add Account</a></li>
-	        </ul>
-	    </div>
+
+
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">AccountApp</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a ui-sref="dashboard">Dashboard</a></li>
+				<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#"> 
+					Accounts
+					<span class="caret"></span>
+				</a>
+					<ul class="dropdown-menu">
+						<li><a ui-sref="account">Show All Accounts</a></li>
+						<li><a ui-sref="addAccount"> Add Account</a></li>
+					</ul></li>
+
+			</ul>
+		</div>
 	</nav>
-	
-    <div ui-view></div>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" href="scripts/bootstrap.min.css"> 
-	<link rel="stylesheet" href="app/feature/account/account.css"> 
-	<link rel="stylesheet" href="app/feature/addAccount/addAccount.css"> 
-	<link rel="stylesheet" href="scripts/bootstrap.min.css"> 
-    <script src="scripts/jquery-2.1.4.min.js"></script>
-    <script src="scripts/angular.min.js"></script>
-    <script src="scripts/ui-router.min.js"></script>
-    <script src="scripts/bootstrap.min.js"></script>
-    
-    <script src="app/app.js"></script>
-    <script src="app/app-state-manager.js"></script>
-    
-    <script src="app/service/dal/dal.js"></script>
-    <script src="app/service/dal/account.js"></script>
-    
-    
-    <script src="app/service/account.js"></script>
-    <script src="app/service/addAccount-service.js"></script>
-    
-    
-    <script src="app/feature/account/account-controller.js"></script>
-    <script src="app/feature/dashboard/dashboard-controller.js"></script>
-    <script src="app/feature/addAccount/addAccount-controller.js"></script>
-    </div>
+
+	<div ui-view></div>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+		rel="stylesheet">
+	<link rel="stylesheet" href="scripts/bootstrap.min.css">
+	<link rel="stylesheet" href="app/feature/account/account.css">
+	<link rel="stylesheet" href="app/feature/addAccount/addAccount.css">
+	<link rel="stylesheet" href="scripts/bootstrap.min.css">
+	<script src="scripts/jquery-2.1.4.min.js"></script>
+	<script src="scripts/angular.min.js"></script>
+	<script src="scripts/ui-router.min.js"></script>
+	<script src="scripts/bootstrap.min.js"></script>
+
+	<script src="app/app.js"></script>
+	<script src="app/app-state-manager.js"></script>
+
+	<script src="app/service/dal/dal.js"></script>
+	<script src="app/service/dal/account.js"></script>
+
+
+	<script src="app/service/account.js"></script>
+	<script src="app/service/addAccount-service.js"></script>
+
+
+	<script src="app/feature/account/account-controller.js"></script>
+	<script src="app/feature/dashboard/dashboard-controller.js"></script>
+	<script src="app/feature/addAccount/addAccount-controller.js"></script>
+	</div>
 </body>
 </html>

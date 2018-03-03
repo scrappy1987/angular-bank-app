@@ -1,14 +1,5 @@
 @charset "ISO-8859-1";
 
-
-.material-icons.orange600:hover { color: #FB8C00; }
-
-.changeState{
-	margin-right:10px;
-
-}
-
-.changeState:hover{
-	 cursor: pointer;
-	 color: #FB8C00;
+button p {
+width: 40px;
 }
