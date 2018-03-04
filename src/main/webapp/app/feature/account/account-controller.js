@@ -6,6 +6,12 @@
 		$log.log("AccountController  Controller Created");
 		var vm = this;
 		vm.isHidden = true;
+		vm.showTransaction = false;
+		vm.setTransactions= function(id){
+			vm.showTransaction=!vm.showTransaction;
+			vm.showTransactionId=id;
+			$log.log("The t id's are "+vm.showTransactionId+" and "+id)
+		}
 		vm.alertDisplay = function() {
 			vm.isHidden = true;
 		};

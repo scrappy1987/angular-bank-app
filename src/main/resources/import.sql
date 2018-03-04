@@ -1,2 +1,14 @@
 insert into account (accountnumber ,firstname ,secondname ) values('2343','Sean','McGee');
 insert into account (accountnumber ,firstname ,secondname ) values('2345','Niall','Mulready');
+insert into transaction (transactionName,transactionNumber) values ('Tesco','T001');
+insert into transaction (transactionName,transactionNumber) values ('Booths','T002');
+insert into transaction (transactionName,transactionNumber) values ('Dockyard','T003');
+insert into transaction (transactionName,transactionNumber) values ('Aldi','T004');
+insert into transaction (transactionName,transactionNumber) values ('Dunnes','T005');
+insert into transaction (transactionName,transactionNumber) values ('Super-Vaule','T006');
+insert into account_transaction values(1,1);
+insert into account_transaction values(1,2);
+insert into account_transaction values(1,3);
+insert into account_transaction values(1,4);
+insert into account_transaction values(2,5);
+insert into account_transaction values(2,6);

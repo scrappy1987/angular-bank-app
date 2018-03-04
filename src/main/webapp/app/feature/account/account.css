@@ -1,5 +1,5 @@
 @charset "ISO-8859-1";
 
 button p {
-width: 40px;
+min-width: 40px
 }
