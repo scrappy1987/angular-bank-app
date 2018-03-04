@@ -5,3 +5,13 @@
     margin-left: 10% !important;
     margin-bottom: 0px !important; 
 }
+
+.material-icons.redWarrning { color: #ff0000; }
+
+.material-icons.greenDone { color: #00ff00; }
+
+input {max-width:60% !important;}
+
+.form-control{display:inline !important;}
+
+label{display: block !important;}

@@ -18,27 +18,34 @@
 
 
 
-		<form>
+		<form name="accountForm">
 			<div class="form-group">
-				<label for="firstName">First Name:</label> <input type="text"
+				<label for="firstName">First Name:</label> <input type="text" name="firstName"
 					class="form-control" id="firstName"
-					ng-model="addAccountCtrl.firstName">
+					ng-model="addAccountCtrl.firstName"  placeholder="Please Enter your First name"  required pattern="[A-Za-z]{2}.*" title="At Least 2 Letters">
+					<i class="material-icons greenDone" ng-show="accountForm.firstName.$valid">done</i>
+					<i class="material-icons redWarrning" ng-show="accountForm.firstName.$invalid">report_problem</i>
+					
 			</div>
 
 			<div class="form-group">
-				<label for="lastName">Last Name:</label> <input type="text"
+				<label for="lastName">Last Name:</label> <input type="text" name="lastName"
 					class="form-control" id="lastName"
-					ng-model="addAccountCtrl.lastName">
+					ng-model="addAccountCtrl.lastName"  placeholder="Please Enter your Last name"  required pattern="[A-Za-z]{2}.*" title="At Least 2 Letters">
+					<i class="material-icons greenDone " ng-show="accountForm.lastName.$valid">done</i>
+					<i class="material-icons redWarrning" ng-show="accountForm.lastName.$invalid">report_problem</i>
 			</div>
 			<div class="form-group">
-				<label for="accountNumber">First Name:</label> <input type="text"
+				<label for="accountNumber">Account Number:</label> <input type="text" name="accountNumber"
 					class="form-control" id="accountNumber"
-					ng-model="addAccountCtrl.accountNumber">
+					ng-model="addAccountCtrl.accountNumber"  placeholder="Please Enter your Account Number"  required pattern="[0-9]{4}"  title="Must Be 4 Digits">
+					<i class="material-icons greenDone" ng-show="accountForm.accountNumber.$valid">done</i>
+					<i class="material-icons redWarrning" ng-show="accountForm.accountNumber.$invalid">report_problem</i>
 			</div>
 
 
 			<button class="btn btn-info " type="button"
-				ng-click="addAccountCtrl.setAction()">{{addAccountCtrl.buttonName}}</button>
+				ng-show="accountForm.accountNumber.$valid && accountForm.lastName.$valid && accountForm.firstName.$valid" ng-click="addAccountCtrl.setAction()">{{addAccountCtrl.buttonName}}</button>
 		</form>
 
 	</div>
