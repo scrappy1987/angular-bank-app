@@ -72,4 +72,23 @@ public class AccountDBRepository implements AccountRepository {
 		this.util = util;
 	}
 
+	@Override
+	@Transactional(REQUIRED)
+	public String updateAccount(String accout) {
+		// TODO Auto-generated method stub
+		Account updateAccount = util.getObjectForJSON(accout, Account.class);
+		Long id=updateAccount.getId();
+		LOGGER.info("AccountDBRepository updateAccount settting new Values for A/C "+updateAccount.getId()+" "+updateAccount.getAccountNumber());
+		Account accountInDB = findAccount(id);
+		LOGGER.info("AccountDBRepository updateAccount old Account Values for A/C "+accountInDB.getId()+" "+accountInDB.getAccountNumber());
+		accountInDB.setAccountNumber(updateAccount.getAccountNumber());
+		accountInDB.setFirstName(updateAccount.getFirstName());
+		accountInDB.setSecondName(updateAccount.getSecondName());
+
+		
+		LOGGER.info("AccountDBRepository updateAccount old Account Values for A/C "+accountInDB.getId()+" "+accountInDB.getAccountNumber());
+	
+		return "{\"message\": \"account updated\"}";
+	}
+
 }
